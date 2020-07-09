@@ -6,7 +6,6 @@ import * as services from './../services/index';
 export const addNewGymRequest = (gym) => {
   return async (dispatch) => {
     var { images, ...data } = gym;
-    const refDB = firebase.database().ref(`Fast`);
     let paths = await uploadImagesStorage(images);
 
     let imagesObject = {};
@@ -20,8 +19,10 @@ export const addNewGymRequest = (gym) => {
       created_at: Date.now()
     }
 
-    firebase.database().ref(`Fast`).push(newItem).then((data) => {
-      console.log(data)
+    return firebase.database().ref(`Fast`).push(newItem).then((data) => {
+      return Promise.resolve(data)
+    }).catch(err => {
+      return Promise.reject(err)
     });
   }
 }

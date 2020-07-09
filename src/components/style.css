@@ -137,12 +137,14 @@
     color: #ff5252;
 }
 
-
+.mr-1{
+  margin-right: 0.5rem;
+}
 /*Footer*/
 .footer{
     display: block;
     margin-top: 40px;
-    background: url(/img/banner2.jpg) no-repeat;
+    background: url("https://res.cloudinary.com/twenty20/private_images/t_watermark-criss-cross-10/v1529746499000/photosp/e4ccd989-f5d5-4e51-93f6-0e7db4583d51/stock-photo-sport-ball-cup-world-game-soccer-background-football-goal-e4ccd989-f5d5-4e51-93f6-0e7db4583d51.jpg") no-repeat;
     background-position: bottom;
     background-size: cover;
     color: #fff;

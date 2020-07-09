@@ -18,7 +18,8 @@ class AddNew extends React.Component {
       rep: '',
       link: '',
       images: [],
-      tempImg: []
+      tempImg: [],
+      isLoading: false
     }
   }
 
@@ -79,9 +80,16 @@ class AddNew extends React.Component {
 
     formData = { ...formData, Detail: this.state.Detail, images: this.state.images };
 
-    this.resetForm();
-    this.props.addNew(formData);
-    NotificationManager.success('Xem chi tiết ở bảng bên', 'Thêm mới tin tức thành công!', 4000);
+    this.setState({ isLoading: true });
+    this.props.addNew(formData).then(res => {
+      console.log(res);
+      this.setState({ isLoading: false });
+      NotificationManager.success('Xem chi tiết ở bảng bên', 'Thêm mới tin tức thành công!', 4000);
+      this.resetForm();
+    }).catch(err => {
+      console.error(err);
+      this.setState({ isLoading: false });
+    });
   }
 
 
@@ -91,7 +99,7 @@ class AddNew extends React.Component {
   }
 
   render() {
-    const { tempImg, images } = this.state;
+    const { tempImg, images, isLoading } = this.state;
 
     return (
       <div className="form-add">
@@ -131,33 +139,6 @@ class AddNew extends React.Component {
             />
           </div>
 
-          {/* <div className="form-group">
-            <label>Danh mục:</label>
-            <select
-              required="required"
-              name="category"
-              className="form-control"
-              required="required"
-              onChange={this.onChange}
-              value={this.state.category}
-            >
-              <option value="">-- Danh mục--</option>
-              <option value="ABSBeginer">ABSBeginer</option>
-              <option value="ABSInt">ABSInt</option>
-              <option value="ABSAdvance">ABSAdvance</option>
-              <option value="ChestBeginer">ChestBeginer</option>
-              <option value="ChestInt">ChestInt</option>
-              <option value="ChestAdvance">ChestAdvance</option>
-              <option value="ShoulderBeginer">ShoulderBeginer</option>
-              <option value="ShoulderInt">ShoulderInt</option>
-              <option value="ShoulderAdvance">ShoulderAdvance</option>
-              <option value="LegBeginer">LegBeginer</option>
-              <option value="LegInt">LegInt</option>
-              <option value="LegAdvance">LegAdvance</option>
-            </select>
-          </div> */}
-
-
           <div className="form-group">
             <label>Giải Đấu:</label>
             <input required="required" type="text" className="form-control" name="League" id="" placeholder="Giải đấu" />
@@ -189,7 +170,14 @@ class AddNew extends React.Component {
           </div>
 
           <div className="text-center">
-            <button type="submit" className="btn-save"><i className="fa fa-floppy-o"></i> Lưu lại</button>
+            <button type="submit" className="btn-save" disabled={isLoading}>
+              {
+                isLoading
+                ? <i class="fa fa-spinner fa-pulse mr-1"></i>
+                : <i className="fa fa-floppy-o mr-1"></i>
+              }
+              Lưu lại
+            </button>
           </div>
 
         </form>
@@ -198,16 +186,12 @@ class AddNew extends React.Component {
   }
 }
 const mapStateToProps = (state) => {
-  return {
-
-  };
+  return {};
 }
 
 const mapDispatchToProps = (dispatch, props) => {
   return {
-    addNew: (gym) => {
-      dispatch(actions.addNewGymRequest(gym))
-    }
+    addNew: (gym) => dispatch(actions.addNewGymRequest(gym))
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(AddNew)

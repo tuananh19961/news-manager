@@ -25,7 +25,7 @@ class Category extends React.Component {
             let alert = window.confirm('Bạn có chắc chắn muốn xóa?');
             if (alert) {
               this.props.deleteData(cell);
-              NotificationManager.success('', 'Xóa bài tập thành công!', 4000);
+              NotificationManager.success('', 'Xóa tin tức thành công!', 4000);
             }
           }
           }><i className="fa fa-trash"></i></button>
@@ -34,7 +34,7 @@ class Category extends React.Component {
   }
 
   nodata = (cell, row) => {
-    return (<img src="../img/loading.gif" className="img-loading" alt="loading..." />);
+    return (<img src="https://media2.giphy.com/media/3oEjI6SIIHBdRxXI40/200.gif" className="img-loading" alt="loading..." />);
   }
 
   descriptionFormatter = (cell, row) => {
