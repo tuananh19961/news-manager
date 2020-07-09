@@ -1,8 +1,25 @@
 import firebase from './../firebase';
 import * as types from './../constants/ActionTypes';
 import * as services from './../services/index';
+import axios from 'axios';
+import { NotificationContainer, NotificationManager } from 'react-notifications';
+
+const endpoint = 'http://18.140.51.77/api/v1/admin-upload';
+const host = 'http://18.140.51.77';
+const config = {
+  headers: { 'content-type': 'multipart/form-data' }
+}
 
 //ADD NEW ITEM
+const postDataMultipart =  async(url, data) => {
+  try {
+    const result = await axios.post(url, data, config);
+    return result;
+  } catch (e) {
+      throw e;
+  }
+};
+
 export const addNewGymRequest = (gym) => {
   return async (dispatch) => {
     var { images, ...data } = gym;
@@ -31,11 +48,15 @@ const uploadImagesStorage = async (imageArray) => {
   const imagesBlob = [];
   await Promise.all(
     imageArray.map(async (img) => {
-      let rand = Math.random().toString(36).substring(7);
-      let nameImg = `${img.name}_${rand}`;
-      let storageRef = firebase.storage().ref(`store/${nameImg}`);
-      await storageRef.put(img);
-      return await storageRef.getDownloadURL().then((result) => imagesBlob.push(result))
+      let formData = new FormData();
+      formData.append("file", img);
+      await postDataMultipart(endpoint, formData).then(res => {
+        let { data: {data} } = res;
+        let path = `${host}${data.file_path}`;
+        imagesBlob.push(path);
+      }).catch(err => {
+        NotificationManager.error('', 'Có lỗi xảy ra, thử lại sau!', 4000);
+      });
     }),
   );
 
