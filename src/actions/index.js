@@ -4,8 +4,8 @@ import * as services from './../services/index';
 import axios from 'axios';
 import { NotificationContainer, NotificationManager } from 'react-notifications';
 
-const endpoint = 'http://18.140.51.77/api/v1/admin-upload';
-const host = 'http://18.140.51.77';
+const endpoint = 'https://www.fservingtech.com/api/v1/attachment';
+const host = 'https://www.fservingtech.com';
 const config = {
   headers: { 'content-type': 'multipart/form-data' }
 }
@@ -49,10 +49,10 @@ const uploadImagesStorage = async (imageArray) => {
   await Promise.all(
     imageArray.map(async (img) => {
       let formData = new FormData();
-      formData.append("file", img);
+      formData.append("photo", img);
       await postDataMultipart(endpoint, formData).then(res => {
-        let { data: {data} } = res;
-        let path = `${host}${data.file_path}`;
+        let { data: {data : { attributes }} } = res;
+        let path = `${host}${attributes.pathname}`;
         imagesBlob.push(path);
       }).catch(err => {
         NotificationManager.error('', 'Có lỗi xảy ra, thử lại sau!', 4000);
