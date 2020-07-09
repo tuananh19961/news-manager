@@ -1,0 +1,320 @@
+.form-add{
+
+}
+
+.page-link{
+    border-radius: 50%;
+    margin: 0 10px;
+}
+
+.pagination>li:last-child>a, .pagination>li:last-child>span,.pagination>li:first-child>a, .pagination>li:first-child>span{
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+}
+
+#description{
+	resize: none;
+}
+
+.img-gym{
+	max-width: 100px;
+	height: auto;
+	display: block;
+	object-fit: cover;
+}
+.footer{
+	margin-top: 150px;
+}
+.btn-save{
+	padding: 8px 15px;
+	background: #63b547;
+    border: 1px solid #52a138;
+	color: #fff;
+	font-size: 16px;
+	font-weight: bold;
+	transition: all 0.7s;
+	border-radius: 5px;
+}
+.form-group{
+    margin-bottom: 16px;
+}
+.btn-save:hover{
+	background: #fff;
+	color: #000;
+}
+/*section bar tittle*/
+
+.section-bar{
+    margin-bottom: 20px;
+    padding: 0;
+}
+.section-title {
+    color: #00CCFF;
+}
+
+.is-tabs .section-title{
+	float: left;
+}
+
+.section-title {
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 30px;
+    margin-bottom: 0;
+}
+
+.section-title {
+    color:red;
+}
+.section-tab {
+    float: right;
+    list-style-type: none;
+    margin-top: 8px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.section-tab li {
+    float: left;
+    font-size: 12px;
+}
+.section-bar .grid-1 {
+    margin-bottom: 0;
+}
+
+.grid-1 {
+    background-color: #000;
+    clear: both;
+    height: 3px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+.grid-1 span {
+    width: 150px!important;
+    background-color: #4CAF50;
+}
+
+.grid-1 span {
+    display: block;
+    height: 100%;
+    margin: 0;
+    width: 100px;
+}
+
+.clearfix::after {
+    clear:both;
+    content:".";
+    display:block;
+    font-size:0;
+    height:0;
+    line-height:0;
+    visibility:hidden;
+}
+
+.table-gym ol{
+    margin: 0;
+
+}
+
+
+
+/*Header*/
+.navbar{
+    border-radius: 0;
+}
+.navbar-brand{
+    color: #fff!important;
+    font-size: 33px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.37);
+}
+
+.navbar-brand span {
+    color: #ff5252;
+}
+
+
+/*Footer*/
+.footer{
+    display: block;
+    margin-top: 40px;
+    background: url(/img/banner2.jpg) no-repeat;
+    background-position: bottom;
+    background-size: cover;
+    color: #fff;
+    padding: 50px 0;
+    border-top: 5px solid #52a138;
+}
+
+@media (max-width: 480px){
+.logo a, .logo2 a {
+    font-size: 26px;
+}
+}
+@media (max-width: 568px){
+.logo2 a {
+    font-size: 28px;
+}
+}
+
+.logo2 a {
+    color: #fff;
+    font-size: 33px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.37);
+}
+
+.logo2 a span {
+    color: #ff5252;
+}
+
+.mb-4, .my-4 {
+    margin-bottom: 1.5rem !important;
+}
+.list-unstyled {
+    padding-left: 0;
+    list-style: none;
+}
+.agileits_social_list li {
+    display: inline-block;
+}
+.agileits_social_list li a {
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    text-align: center;
+    display: inline-block;
+    font-size: 14px;
+    border: 2px solid #999;
+    line-height: 2.8;
+}
+.ml-2, .mx-2 {
+    margin-left: 0.5rem !important;
+}
+p.copyright-w3ls {
+    color: #eee;
+    letter-spacing: 2px;
+}
+
+.react-bs-table .table-bordered>tbody>tr>td{
+    animation: fadein 1s;
+    -moz-animation: fadein 1s; /* Firefox */
+    -webkit-animation: fadein 1s; /* Safari and Chrome */
+    -o-animation: fadein 1s; /* Opera */
+}
+
+
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+/*Responsive table*/
+
+@media screen and (max-width: 678px){
+    col:first-child{
+        width: 100%!important;
+    }
+
+    .react-bs-table .table-bordered>tbody>tr>td {
+            display: block;
+            border: none;
+            border-bottom: 1px dotted #ddd;
+            font-size: 15px;
+            margin: 0 10px;
+            white-space: unset;
+    }
+    .img-gym{
+        margin: 0 auto;
+        width: 150px;
+    }
+    .react-bs-container-footer, .react-bs-container-header{
+        display: none;
+    }
+    .react-bs-container-body tr{
+        border: 2px solid #e5e5e5;
+        display: block;
+        margin-bottom: 15px;
+        box-shadow: 0px 1px 2px 1px #999;
+    }
+    .react-bs-table-bordered{
+        border: none;
+    }
+    }
+
+    .hidden{
+        width: 0;
+    }
+
+    .react-bs-table table td, .react-bs-table table th{
+        white-space: normal;
+    }
+    .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+        vertical-align: middle;
+    }
+    .gym-box .form{
+        animation: fadein 1.5s, fadeout 1.5s;
+        -moz-animation: fadein 1.5s; /* Firefox */
+        -webkit-animation: fadein 1.5s; /* Safari and Chrome */
+        -o-animation: fadein 1.5s; /* Opera */
+    }
+
+    @keyframes fadeout {
+        from {
+            opacity:1;
+        }
+        to {
+            opacity:0;
+        }
+    }
+
+    .list-describ{
+       text-align: justify;
+    }
+
+    .list-describ ol li{
+        margin-bottom: 3px;
+    }
+
+    @media screen and (max-width: 678px){
+        .table colgroup col{
+            width: 100%!important;
+            min-width: 100%!important;
+            display: block;
+        }
+    }

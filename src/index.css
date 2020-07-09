@@ -1,0 +1,68 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+.img-loading{
+	width: 200px;
+	height: 200px;
+	display: block;
+	object-fit: cover;
+	object-position: center;
+	margin: 0 auto;
+}
+
+.mr-5px{
+  margin-right: 5px;
+}
+
+.preview{
+  display: block;
+  overflow: hidden;
+  margin: 0 -5px;
+  margin-top: 1rem;
+}
+.preview:empty{
+  margin-top: 0;
+}
+.preview .preview-item{
+  width: 25%;
+  float: left;
+  margin: 5px;
+  position: relative;
+  margin-top: 10px;
+}
+.preview .preview-item .btn-delete{
+  position: absolute;
+  right: -8px;
+  top: -8px;
+  height: 26px;
+  width: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  background-color: #e5e5e5;
+  cursor: pointer;
+  border-radius: 100%;
+}
+
+.preview .preview-item .btn-delete:hover{
+  background-color: #ccc;
+}
+.preview .preview-item img{
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 1.5rem;
+  border: 1px dashed aquamarine;
+}
